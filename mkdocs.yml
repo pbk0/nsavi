@@ -1,0 +1,99 @@
+site_name: Savitha Nagaraju
+
+edit_uri: https://github.com/SpikingNeurons/nsavi/edit/main/docs
+
+theme:
+  name: material
+  custom_dir: overrides
+  icon:
+    view: material/eye
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.prune
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.footer
+    - navigation.top
+    - toc.follow
+    - toc.integrate
+    - content.action.edit
+    - content.action.view
+
+extra:
+  generator: false  # disable made with mkdocs
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://spikingneurons.com
+      name: Twitter
+    - icon: fontawesome/brands/github
+      link: https://spikingneurons.com
+      name: Github
+    - icon: fontawesome/brands/docker
+    - icon: fontawesome/brands/facebook
+    - icon: fontawesome/brands/medium
+    - icon: fontawesome/brands/instagram
+    - icon: fontawesome/brands/linkedin
+    - icon: fontawesome/brands/slack
+    - icon: fontawesome/brands/discord
+  comments:
+    enabled: true
+
+copyright: Copyright &copy; 2013 - 2023 Spiking Neurons
+        
+plugins:
+  - blog:
+      blog_dir: blog
+      blog_toc: true
+      post_dir: "{blog}/articles"
+      post_date_format: full
+      post_url_date_format: yyyy/MM/dd
+      post_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+      post_slugify_separator: _
+      post_excerpt: required
+      post_excerpt_max_authors: 3
+      post_excerpt_max_categories: 3
+      post_excerpt_separator: <!-- more -->
+      post_readtime: true
+      archive: false
+      archive_name: Archive
+      archive_toc: true
+      categories: true
+      categories_name: Categories
+      categories_url_format: "category/{slug}"
+      categories_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+      categories_slugify_separator: _
+      categories_allowed:
+        - Search
+        - Performance
+      categories_toc: true
+      pagination: true
+      pagination_per_page: 5
+      pagination_url_format: "page/{page}"
+      pagination_format: "~2~"
+      pagination_if_single_page: true
+      pagination_keep_content: true
+      authors: true
+      authors_file: "{blog}/.authors.yml"
+      draft: true
+      draft_on_serve: true
+      draft_if_future_date: true
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
